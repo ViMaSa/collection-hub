@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylsheets/css/styles.css">
+    <title>Home</title>
+   
+</head>
+<body>
+        <!-- ------------------------------------------Button------------------------------------------- -->
+        <button id="top-button"><img class="button-pic" src=""></button>
+        <!-- -------------------------------------------Body-------------------------------------------- -->
+        <div id="navbar">
+            <div id="logo">
+                <p id="name">Home </p>
+                <button class="name-underline color">____________ </button>
+            </div>
+            <div id="nav">
+                <ul id="links-container">
+                    <button class="header-button color" onclick="location.href='home.html'">Home</button>
+                    <button class="header-button color" onclick="location.href='.html'">User</button>
+                    <button class="header-button color" onclick="location.href='.html'">Something</button>
+                    <button class="header-button color" onclick="location.href='.html'">something</button>
+                    <button class="header-button color" onclick="location.href='.html'">Something</button>
+                </ul>
+            </div>
+        </div>
+        <% if(isLoggedIn){ %>
+            <h1>Welcome back <%= username %>!</h1>
+            <a href="/dogs/index"><button type="button">Enter</button></a>
+        <% } else { %>
+            <a href="/users/login">Please log in</a>
+            <br>
+            <a href="/users/new">Create New Account</a>
+        <% } %>
+        <div class="section-1 box1">
+            <h1></h1>
+        </div>
+        <div class="section-2 box">
+        </div>
+        <div class="section-3 box2">
+            <h1></h1>
+        </div>
+        <div class="section-4 box">
+        </div>
+</body>
+</html>

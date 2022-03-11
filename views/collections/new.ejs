@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Collection Database</title>
+</head>
+<body>
+    <h1>Collections index page</h1>
+    <% if(collections.length === 0) {%>
+        <h2>There are no collections yet!</h2>
+    <% } else { %> 
+    <ul class="collections">
+        <% collections.forEach((dog)=>{ %>
+            <li><a href="/collections/<%=dog._id%>"><%= dog.name %></a> is <%=dog.age%> years old</li>
+        <% }) %>
+    </ul>
+    <% } %>
+
+    <a href="/users">Search for users</a>
+    <a href="/collections/new">Create one now!</a>
+</body>
+</html>
