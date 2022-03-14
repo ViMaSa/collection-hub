@@ -12,7 +12,6 @@ const userSchema = new Schema({
     firstName: {type: String},
     lastName: {type: String},
     email: {type: String, unique: true, required: true},
-    collectionId: {type: Schema.Types.ObjectId, ref: 'Collection'}
 }, {timestamps: true})
 
 const User = mongoose.model('User', userSchema);
