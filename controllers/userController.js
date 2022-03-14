@@ -22,7 +22,7 @@ router.post("/login", async (req, res)=>{
               // It's a match! Successful login!
               req.session.isLoggedIn = true;
               req.session.userId = possibleUser._id;
-              res.redirect("/dogs")
+              res.redirect("/users/profile")
           }else{
               res.redirect("/users/login")
           }
@@ -58,7 +58,7 @@ router.get('/new', (req, res)=>{
 // Shows a page displaying one user
 router.get('/:id', async (req, res)=>{
   const user = await User.findById(req.params.id)
-  res.render("users/show.ejs", {
+  res.render("show.ejs", {
       user: user
   })
 })
