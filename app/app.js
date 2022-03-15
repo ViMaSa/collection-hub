@@ -44,6 +44,6 @@ app.get('/', (req, res) => {
 app.use('/users', userController);
 app.use('/collections', isLoggedIn, collectionController);
 
-app.listen(port, ()=>{
+module.exports = app.listen(port, ()=>{
     console.log('app running');
 })
