@@ -1,0 +1,138 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* -----------------------------------------------Body------------------------------------------------- */
+.body {
+    background: white;
+}
+/* --------------------------------------------Top Nav Bar--------------------------------------------- */
+nav {
+    text-align: center;
+    background-color: red;
+    color: red;
+}
+
+#the-nav-bar {
+    background-color: white;
+}
+
+.navbar {
+    top: 0px;
+    Left: 0px;
+    width: 100%;
+    height: 80px;
+    z-index: 500;
+    background-color: red;
+    /* border-top-color: #2c92d5;
+    border-right-color: #2c92d5; */
+    border-bottom-color: white;
+    border-left-color: #2c92d5;
+    opacity: 90%;
+    position: fixed;
+    box-shadow: 0 2px 30px rgba(44, 146, 213,.80);
+}
+.navbar #nav-icon {
+    padding: 25px 5px 5px 5px;
+}
+/* #name {
+    font-size: 30px;
+    text-decoration-color: #08E8DE;
+    color: white;
+    font-family: 'Nothing You Could Do', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Rock Salt', cursive;
+    margin: 0vmax 0vw 5px 5.5vmax;
+} */
+/* ---------------------------------------Top Nav Bar Link Tabs---------------------------------------- */
+.links-container {
+    text-align:center;
+    padding: 57px 17vw 1vw 1vw;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    background-color: #0000;
+    margin: 0px;
+}
+.header-button {
+    font-size: 1rem;
+    font-family: 'Prompt', sans-serif;
+    width: 8vw;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 2.7px 0vw 0vw 5.7vw;
+    height: 25px;
+    text-align: center;
+    border: 1px solid;
+    border-color: #86eae9;
+    background-size: 300% 100%;
+    border-radius: 0px 0px 20px 20px;
+    border-top-color: #0000;
+    transition: all .4s ease-in-out;
+}
+.header-button:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+}
+.header-button:focus {
+    outline: none;
+}
+.header-button.color {
+    background-image: linear-gradient(to left, black, #faff00, black, black);
+}
+/* ---------------------------------------------Main Body---------------------------------------------- */
+.section-1 {
+    height: 57vmin;
+    background-image: url();
+    background-attachment: fixed;
+    background-size: 100%;
+    background-color: lightgreen;
+    background-repeat: no-repeat;
+    padding: 40px 0px 45vw 20px;
+    margin: 0px 0px 3vw 0px;
+    width: 100%;
+}
+.section-2 {
+    font-family: 'Rock Salt', cursive;
+    text-align:center;
+    font-size: 1vw;
+    background: grey;
+    height: 700px;
+    width: auto;
+    border: 2px solid;
+    border-top-color: #08E8DE;
+    border-right-color: #08E8DE;
+    border-bottom-color: #08E8DE;
+    border-left-color: #08E8DE;
+    margin: 2vw 2vw 2vw 2vw;
+    padding: 15px 15px 15px 15px;
+}    
+.section-3 {
+    background-image: url();
+    background-attachment: fixed;
+    background-size: 100%;
+    background-color: lightblue;
+    background-repeat: no-repeat;
+    padding: 40px 0px 45vw 20px;
+    margin: 0px 0px 3vw 0px;
+    width: 100%;
+}
+.section-4 {
+    font-family: 'Rock Salt', cursive;
+    text-align:center;
+    font-size: 1vw;
+    background: black;
+    color: yellow;
+    height: 700px;
+    width: auto;
+    border: 2px solid;
+    border-top-color: #08E8DE;
+    border-right-color: #08E8DE;
+    border-bottom-color: #08E8DE;
+    border-left-color: #08E8DE;
+    margin: 2vw 2vw 2vw 2vw;
+    padding: 15px 15px 15px 15px;
+}
+

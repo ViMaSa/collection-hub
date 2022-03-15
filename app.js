@@ -14,6 +14,7 @@ const store = new MongoDBStore({
 require('./db-utils/connect')
 const collectionController = require('./controllers/collectionController')
 const userController = require('./controllers/userController')
+// app.use('/public',express.static(__dirname + '/public/'))
 app.use(express.static("public"))
 app.use(methodOverride('_method'))
 app.use(require('./middleware/logger'))
@@ -37,11 +38,9 @@ app.use(async (req, res, next)=>{
     next()
 })
 
-
-app.get('/', (req, res)=>{
-    res.render("home.ejs")
-})
-
+app.get('/', (req, res) => {
+    res.render('home.ejs');
+});
 app.use('/users', userController);
 app.use('/collections', isLoggedIn, collectionController);
 
