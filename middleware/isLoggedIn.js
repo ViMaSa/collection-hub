@@ -4,4 +4,4 @@ module.exports = (req, res, next)=>{
     }else{
         res.redirect("/users/login")
     }
-  }
+}
