@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const collectionSchema = new Schema({
     name: {type: String, required: true},
     category: {type: Number, required: true},
-    description: {type: String},
+    description: {type: String, required: false},
+    img: {type: String, required: false},
     userId: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 }, {timestamps: true})
 

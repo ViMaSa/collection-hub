@@ -38,11 +38,16 @@ app.use(async (req, res, next)=>{
     next()
 })
 
-app.get('/', (req, res) => {
-    res.render('home.ejs');
+app.get('/', async (req, res) => {
+    const users = await User.find({username: req.query.username});
+    res.render('home.ejs', {
+        users: users
+    });
 });
 app.use('/users', userController);
+
 app.use('/collections', isLoggedIn, collectionController);
+
 
 module.exports = app.listen(port, ()=>{
     console.log('app running');

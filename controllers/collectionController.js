@@ -28,11 +28,17 @@ router.get('/:id', async (req, res) => {
 })
 // CREATE
 router.post('/', async (req, res) => {
-    req.body.user = req.session.userId
-    const newCollection = await Collection.create(req.body)
-    console.log(newCollection)
-    res.redirect('/collections')
+    try{
+        req.body.user = req.session.userId
+        const newCollection = await Collection.create(req.body)
+        console.log(newCollection)
+        res.redirect('/collections')
+    } catch (err) {
+        console.log(err)
+        res.sendStatus(500)
+    }
 })
+
 // EDIT
 router.get('/:id/edit', async (req, res) => {
     try {

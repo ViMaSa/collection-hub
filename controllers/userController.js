@@ -22,7 +22,7 @@ router.post("/login", async (req, res)=>{
               // It's a match! Successful login!
               req.session.isLoggedIn = true;
               req.session.userId = possibleUser._id;
-              res.redirect("/users/profile")
+              res.redirect(`/users/${req.session.userId}/edit`)
           }else{
               res.redirect("/users/login")
           }
@@ -40,12 +40,13 @@ router.get('/logout', (req, res)=>{
       res.redirect("/")
   })
 })
-router.get('/', async (req, res)=>{
-  const users = await User.find({username: req.query.username});
-  res.render('users/index.ejs', {
-      users: users
-  })
-})
+
+// router.get('/', async (req, res)=>{
+//   const users = await User.find({username: req.query.username});
+//   res.render('users/index.ejs', {
+//       users: users
+//   })
+
 // NEW: GET
 // /users/new
 // Shows a form to create a new user
@@ -58,7 +59,7 @@ router.get('/new', (req, res)=>{
 // Shows a page displaying one user
 router.get('/:id', async (req, res)=>{
   const user = await User.findById(req.params.id)
-  res.render("show.ejs", {
+  res.render("users/show.ejs", {
       user: user
   })
 })
@@ -74,7 +75,7 @@ router.post('/', async (req, res)=>{
   req.body.password = hashedPassword
   const newUser = await User.create(req.body);
   console.log(newUser)
-  res.redirect('/users')
+  res.redirect('/')
 })
 
 // EDIT: GET
@@ -82,7 +83,7 @@ router.post('/', async (req, res)=>{
 // SHOW THE FORM TO EDIT A USER
 router.get('/:id/edit', async (req, res)=>{
   try{
-      if(req.session.userId === req.params.id){
+      if(req.session.userId.toString() === req.params.id){
           const user = await User.findById(req.params.id)
           res.render('users/edit.ejs', {
               user: user

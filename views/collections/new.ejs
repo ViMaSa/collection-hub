@@ -8,16 +8,8 @@
     <title>Collection Database</title>
 </head>
 <body>
-    <h1>Collections index page</h1>
-    <% if(collections.length === 0) {%>
-        <h2>There are no collections yet!</h2>
-    <% } else { %> 
-    <ul class="collections">
-        <% collections.forEach((dog)=>{ %>
-            <li><a href="/collections/<%=dog._id%>"><%= dog.name %></a> is <%=dog.age%> years old</li>
-        <% }) %>
-    </ul>
-    <% } %>
+    <h1>CREATE A NEW COLLECTION</h1>
+
     <form action="/collections" method="POST">
         <label for="name">Name:</label>
         <input type="text" name= "name">
@@ -28,8 +20,14 @@
         <label for="description">Description:</label>
         <input type="text" name= "description">
         <br>
+        <label for="img">Image</label>
+        <input type="text" name= "img">
+        <br>
+        <!-- <label for="userId">UserID</label>
+        <input type="Schema.Types.ObjectId" name= "userId"> -->
+        <br>
         <button type="submit">Submit </button>
-      </form>
+    </form>
 
     <a href="/users">Search for users</a>
     <a href="/collections/new">Create one now!</a>

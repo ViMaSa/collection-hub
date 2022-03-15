@@ -13,7 +13,7 @@ const userSchema = new Schema({
     lastName: {type: String},
     email: {type: String, unique: true, required: true},
 }, {timestamps: true})
-
+// does this need an ID? 
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
