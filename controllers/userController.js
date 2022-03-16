@@ -12,9 +12,10 @@ router.get('/login', (req, res) => {
 })
 
 router.post("/login", async (req, res)=>{
+  console.log('this is the login')
   try{
       // Grab the user from the database with the username from the form
-      const possibleUser = await User.findOne({username: req.body.username})
+      const possibleUser = await User.findOne({email: req.body.email})
       if(possibleUser){
           // There is a user with this username!
           // Compare the password from the form with the database password
@@ -22,7 +23,7 @@ router.post("/login", async (req, res)=>{
               // It's a match! Successful login!
               req.session.isLoggedIn = true;
               req.session.userId = possibleUser._id;
-              res.redirect(`/users/${req.session.userId}/edit`)
+              res.redirect(`/`)
           }else{
               res.redirect("/users/login")
           }
@@ -41,11 +42,6 @@ router.get('/logout', (req, res)=>{
   })
 })
 
-// router.get('/', async (req, res)=>{
-//   const users = await User.find({username: req.query.username});
-//   res.render('users/index.ejs', {
-//       users: users
-//   })
 
 // NEW: GET
 // /users/new

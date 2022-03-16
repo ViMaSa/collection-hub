@@ -39,10 +39,20 @@ app.use(async (req, res, next)=>{
 })
 
 app.get('/', async (req, res) => {
-    const users = await User.find({username: req.query.username});
-    res.render('home.ejs', {
-        users: users
-    });
+    const users = await User.find();
+    if(req.session.isLoggedIn) {
+        const user = await User.findById(req.session.userId)
+        res.render('home.ejs', {
+            user: user,
+            users: users
+        })
+    }
+    else {
+        res.render('home.ejs', {
+            user: 0,
+            users: users
+        });
+    }
 });
 app.use('/users', userController);
 

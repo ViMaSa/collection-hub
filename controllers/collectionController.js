@@ -42,7 +42,8 @@ router.post('/', async (req, res) => {
 // EDIT
 router.get('/:id/edit', async (req, res) => {
     try {
-        const collection = await Collection.findById(req.params.id)
+        const collection = await Collection.find({userid: req.params.id})
+        console.log(collection)
         res.render('collections/edit.ejs', {
             collection: collection
         })
@@ -52,6 +53,7 @@ router.get('/:id/edit', async (req, res) => {
 })
 // UPDATE
 router.put('/:id', async (req, res) => {
+    console.log("hello")
     try {
         await Collection.findByIdAndUpdate(req.params.id, req.body)
         res.redirect(`/collections/${req.params.id}`)
