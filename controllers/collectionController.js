@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // INDEX //
-router.get('/', async (req, res)=>{
+router.get('/showall', async (req, res)=>{
     if(!req.session.visits){
         req.session.visits = 1;
     }else{
@@ -21,18 +21,19 @@ router.get('/new', (req, res)=> {
 })
 // SHOW
 router.get('/:id', async (req, res) => {
-    const collection = await Collection.findById(req.params.id).populate('user')
+    const collection = await Collection.findById(req.params.id)
     res.render('collections/show.ejs', {
         collection: collection
     })
 })
 // CREATE
 router.post('/', async (req, res) => {
+    console.log(req.session.userId.toString())
     try{
-        req.body.user = req.session.userId
+        req.body.userId = req.session.userId.toString();
         const newCollection = await Collection.create(req.body)
         console.log(newCollection)
-        res.redirect('/collections')
+        res.redirect(`collections/${newCollection._id}`)
     } catch (err) {
         console.log(err)
         res.sendStatus(500)

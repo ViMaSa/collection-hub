@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <title>Collection Database</title>
+    <link rel="stylesheet" href="/css/collection.css">
+    <title>Collections</title>
 </head>
 <body>
-    <h1>Collections index page</h1>
+
     <% if(collections.length === 0) {%>
         <h2>There are no collections yet!</h2>
     <% } else { %> 
-    <ul class="collections">
-        <% collections.forEach((collection)=>{ %>
-            <li><a href="/collections/<%=collection._id%>"><%= collection.name %></a> is <%=collection.age%> years old</li>
-        <% }) %>
-    </ul>
+    <!-- ----------------------------------------Page Body---------------------------------------- -->
+
+    <div class="page">
+
+       
+        <div class="page-body">
+            <section class="columns-header">
+                <span>
+                    <!-- <h1 id="text">Check out some Collections</h1> -->
+                    <h2>Check out some </h2>
+                    <h1 id="text"> Collections</h1> 
+                </span>
+            </section> 
+            <section class="columns">
+                <% collections.forEach((collection)=>{ %>
+                    <article class="column-item-1">
+                        <a href ="/collections/<%=collection._id%>">
+                        <ul class="collections"> 
+                        <li class="collection-image">IMAGE GOES HERE<%= collection.img %> </li> 
+                        <li class="collection-name"> <%= collection.name %></li>
+                        <li><%= collection.description %></li>
+                        </ul> 
+                        </a>
+                    </article>
+                <% }) %>
+            </section>
+        </div>
+    </div>
+    
     <% } %>
 
     <a href="/users">Search for users</a>

@@ -12,7 +12,6 @@ router.get('/login', (req, res) => {
 })
 
 router.post("/login", async (req, res)=>{
-  console.log('this is the login')
   try{
       // Grab the user from the database with the username from the form
       const possibleUser = await User.findOne({email: req.body.email})
