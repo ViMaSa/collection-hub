@@ -1,9 +1,7 @@
 const Collection = require("../models/collection");
-const User = require('../models/user');
-const Comment = require('../models/comment');
 const express = require('express');
 const router = express.Router();
-
+const User = require('../models/user');
 const multer = require('multer')
 const upload = multer({ dest: '/tmp/uploads'})
 const cloudinary = require('cloudinary').v2;
@@ -41,7 +39,7 @@ router.post('/', upload.single('myFile'), async (req, res) => {
     console.log(req.file)
     try{
         req.body.userId = req.session.userId.toString();
-        // cloudinary.uploader.upload(req.file.path, (result) => {
+        // cloudinary.uploader.upload(req.rody.file.path, (result) => {
         //     console.log('this is the img result\n', result)
         //     req.body.img = result.url;
         // })
