@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 const multer = require('multer')
-const upload = multer({ dest: '/collection-hub/uploads'})
+const upload = multer({ dest: '/tmp/uploads'})
 const cloudinary = require('cloudinary').v2;
 cloudinary.config(process.env.CLOUDINARY_URL);
 
