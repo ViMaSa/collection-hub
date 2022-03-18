@@ -13,75 +13,9 @@
 
 <body>
     <!-- --------------------------------------Navbar Top----------------------------------------- -->
-    <nav class="navbar navbar-main navbar-fixed-top">
-        <div class="header-container">
-            <div id="navbar" class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if(isLoggedIn) { %>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false"><%=user.username%><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Settings</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="users/logout">Logout</a></li>
-                            </ul>
-                        </li>
-                    <% } else { %>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/users/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/users/new">Create an Account!</a>
-                        </li>
-                    <% } %>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="navbar-form" placeholder="Search...">
-                </form>
-            </div>
-        </div>
-    </nav>
+    <%- include('partials/navbar') %>
     <!-- ----------------------------------------Hub Name----------------------------------------- -->
-    <div class="hubName">
-        <nav class="navbar navbar-main" role="navigation">
-            <div class="navbar-header">
-                <div>
-                    <div>
-                        <a class="navbar-hubName" href="#">
-                            Collector's Hub
-                        </a>
-                    </div>
-                </div>
-            </div>
-    <!-- --------------------------------------Sidebar Tabs--------------------------------------- -->
-            <div class="side-menu-container">
-                <ul class="nav navbar-nav">
-                    <% if(isLoggedIn) { %>
-                    <li class="sibebar-button">
-                        <a data-toggle="collapse" href="#dropdown-here">
-                            Your Collection
-                            <span class="caret"></span>
-                        </a>
-                        <div id="dropdown-here" class="collapse">
-                            <div>
-                                <ul class="nav navbar-nav">
-                                    <li><a href="collections/new">Add New</a></li>
-                                    <!-- <li><a href="#">Settings</a></li> -->
-                                    <li><a href="collections/<%=user.id%>/edit">Edit</a></li>
-                                    <li><a href="#">Comments</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="sibebar-button"><a href="users/<%=user.id%>">Profile</a></li>
-                    <% } %>
-                    <li class="sibebar-button"><a href="collections/showall">Collections</a></li>
-                    <li class="sibebar-button"><a href="#">News</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <%- include('partials/sidebar') %>
     <!-- ----------------------------------------Page Body---------------------------------------- -->
     <div class="page">
         <div class="page-body">

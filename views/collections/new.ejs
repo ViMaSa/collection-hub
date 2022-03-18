@@ -15,31 +15,32 @@
             <div class="row row-cols-1" >
                 <div class="input-group mb-3 col" >
                     <span class="input-group-text" id="inputGroup-sizing-default">Item Name:</span>
-                    <input type="text" class="form-control" aria-label="Item Name" aria-describedby="inputGroup-sizing-default">
-                  </div>
+                    <input type="text" class="form-control" name="name" aria-label="Item Name" aria-describedby="inputGroup-sizing-default">
+                </div>
 
                 <div class="col input-group mb-8">
                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
-                    <select class="form-select" id="inputGroupSelect01">
-                      <option selected>Choose...</option>
-                      <option value="1">Action Figure</option>
-                      <option value="2">Comic Book</option>
-                      <option value="4">Coins and Currency</option>
-                      <option value="5">Trading Cards</option>
-                      <option value="6">Stamps</option>
-                      <option value="7">Fine Art</option>
-                      <option value="8">Jewelry</option>
-                      <option value="9">Other</option>
+                    <select class="form-select" name="category" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="1">Action Figure</option>
+                        <option value="2">Comic Book</option>
+                        <option value="4">Coins and Currency</option>
+                        <option value="5">Trading Cards</option>
+                        <option value="6">Stamps</option>
+                        <option value="7">Fine Art</option>
+                        <option value="8">Jewelry</option>
+                        <option value="8">Video Games</option>
+                        <option value="9">Other</option>
                     </select>
                 </div>
 
                 <div class="mb-3" style="margin: 0;">
                     <label for="text" class="form-label"></label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Put a description of your item here...</textarea>
-                  </div>
+                </div>
                 <div class="col col-xs-4" style="margin-bottom: 2%; margin-top: 0%;">
                     <label for="formFileLg" class="form-label"></label>
-                    <input class="form-control form-control-primary"  type="file">
+                    <input class="form-control form-control-primary" name="myFile" type="file" enctype="multipart/form-data">
                 </div>
                 <div class="col-xs-4"><button type="submit" class="btn btn-outline-dark col">Post</button></div>
             </div>

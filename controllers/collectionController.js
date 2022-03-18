@@ -1,6 +1,13 @@
 const Collection = require("../models/collection");
+const User = require('../models/user');
+const Comment = require('../models/comment');
 const express = require('express');
 const router = express.Router();
+
+const multer = require('multer')
+const upload = multer({ dest: '../uploads'})
+const cloudinary = require('cloudinary').v2;
+cloudinary.config(process.env.CLOUDINARY_URL);
 
 // INDEX //
 router.get('/showall', async (req, res)=>{
@@ -22,15 +29,22 @@ router.get('/new', (req, res)=> {
 // SHOW
 router.get('/:id', async (req, res) => {
     const collection = await Collection.findById(req.params.id)
+    const user = await User.findById(collection.userId)
     res.render('collections/show.ejs', {
-        collection: collection
+        collection: collection,
+        user: user
     })
 })
+
 // CREATE
-router.post('/', async (req, res) => {
-    console.log(req.session.userId.toString())
+router.post('/', upload.single('myFile'), async (req, res) => {
+    console.log(req.file)
     try{
         req.body.userId = req.session.userId.toString();
+        // cloudinary.uploader.upload(req.file.path, (result) => {
+        //     console.log('this is the img result\n', result)
+        //     req.body.img = result.url;
+        // })
         const newCollection = await Collection.create(req.body)
         console.log(newCollection)
         res.redirect(`collections/${newCollection._id}`)
@@ -39,6 +53,8 @@ router.post('/', async (req, res) => {
         res.sendStatus(500)
     }
 })
+
+
 
 // EDIT
 router.get('/:id/edit', async (req, res) => {

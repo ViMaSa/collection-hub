@@ -1,0 +1,40 @@
+<!-- ----------------------------------------Hub Name----------------------------------------- -->
+<div class="hubName">
+    <nav class="navbar navbar-main" role="navigation">
+        <div class="navbar-header">
+            <div>
+                <div>
+                    <a class="navbar-hubName" href="/">
+                        Collector's Hub
+                    </a>
+                </div>
+            </div>
+        </div>
+<!-- --------------------------------------Sidebar Tabs--------------------------------------- -->
+        <div class="side-menu-container">
+            <ul class="nav navbar-nav">
+                <% if(isLoggedIn) { %>
+                <li class="sibebar-button">
+                    <a data-toggle="collapse" href="#dropdown-here">
+                        Your Collection
+                        <span class="caret"></span>
+                    </a>
+                    <div id="dropdown-here" class="collapse">
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li><a href="collections/new">Add New</a></li>
+                                <!-- <li><a href="#">Settings</a></li> -->
+                                <li><a href="collections/<%=user.id%>/edit">Edit</a></li>
+                                <li><a href="#">Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="sibebar-button"><a href="users/<%=user.id%>">Profile</a></li>
+                <% } %>
+                <li class="sibebar-button"><a href="collections/showall">Collections</a></li>
+                <li class="sibebar-button"><a href="#">News</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

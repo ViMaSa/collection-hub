@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="/css/collection.css">
     <title>Collections</title>
 </head>
@@ -23,21 +24,26 @@
                     <!-- <h1 id="text">Check out some Collections</h1> -->
                     <h2>Check out some </h2>
                     <h1 id="text"> Collections</h1> 
+                    <div class="box">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>         
                 </span>
             </section> 
-            <section class="columns">
+            <div class="columns">
                 <% collections.forEach((collection)=>{ %>
-                    <article class="column-item-1">
+                    <div class="column-item-1  wrapper">
                         <a href ="/collections/<%=collection._id%>">
                         <ul class="collections"> 
-                        <li class="collection-image">IMAGE GOES HERE<%= collection.img %> </li> 
+                        <ul class="collection-image"> IMAGE GOES HERE<%= collection.img %> </ul>
                         <li class="collection-name"> <%= collection.name %></li>
                         <li><%= collection.description %></li>
                         </ul> 
                         </a>
-                    </article>
+                    </div>
                 <% }) %>
-            </section>
+                </div>
         </div>
     </div>
     
