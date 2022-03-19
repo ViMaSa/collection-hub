@@ -24,7 +24,7 @@
           <div class="product-img">
             <img src="<%=collection.img%>" height="420" width="327">
           </div>
-          <div class="product-info">
+          <!-- <div class="product-info">
             <div class="product-text">
               <h1><%=collection.name%></h1> 
               <h2> <%=user.username%> </h2> 
@@ -35,8 +35,33 @@
               class="twitter-share-button" data-size="large">
               Tweet
             </a>
-          </div>
+          </div> -->
         </div>
+        <div class="wrapper">
+            <div class="col-sm-6 col-sm-offset-3">
+              Leave a comment!
+              <form action="/collections/<%=collection._id%>/comments" method="POST">
+                <textarea class='form-control' name="content" placeholder="Comment"></textarea>
+                <div class="text-right">
+                  <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3 comment-field">
+              <h1>Comments</h1>
+             
+    
+
+
+              <% for (let i=0;i<= collection.comments.length; i++){%>
+                <%=collection.comments[i]%>
+              <% }%>
+            </div>
+              </div>
+
+          </div>
+
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
         </script>
      </div>

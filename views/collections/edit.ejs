@@ -11,37 +11,45 @@
     <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
   </head>
   <body>
-    <h1>Edit your collection!</h1>
+    <section class="columns-header">
+      <span class="collections-title">
+          <h1 id="text">Edit Collections</h1> 
+          <div class="box">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>         
+      </span>
+    </section> 
     <div class="wrapper">
-      <div class="product-img">
-        <img src="<%=collection.img%>" height="420" width="327">
-      </div>
-      <div class="product-info">
-        <div class="product-text">
-          <form action="/collections/<%=collection._id%>?_method=PUT" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name= "name" value="<%=collection.name%>">
-            <br>
-            <label for="category">Category:</label>
-            <input type="text" name= "category" value="<%=collection.category%>">
-            <br>
-            <label for="description">Description:</label>
-            <input type="text" name= "description"  value="<%=collection.description%>">
-            <br>
-            <label for="img">Image</label>
-            <input type="text" name= "img" value="<%=collection.img%>">
-            <br>
-            <label for="userId">User Id</label>
-            <input type="text" name= "userId" value="<%=collection.userId%>">
-            <br>
-            <button type="submit">Submit</button>
-          </form> 
-          <hr>
-          <form action="/collections/<%= collection._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete <%=collection.name%>?</button>
-          </form>
+      <% for(let i = 0; i < collection.length; i++) { %>
+        <div class="product-img">
+          <img src="<%=collection.img%>" height="420" width="327">
         </div>
-      </div>
+        <div class="product-info">
+          <div class="product-text">
+            <form action="/collections/<%=collection._id%>?_method=PUT" method="POST">
+              <label for="name">Name:</label>
+              <input type="text" name= "name" value="<%=collection[i].name%>">
+              <br>
+              <label for="category">Category:</label>
+              <input type="text" name= "category" value="<%=collection[i].category%>">
+              <br>
+              <label for="description">Description:</label>
+              <input type="text" name= "description"  value="<%=collection[i].description%>">
+              <br>
+              <label for="img">Image</label>
+              <input type="text" name= "img" value="<%=collection[i].img%>">
+              <br>
+              <button type="submit">Submit</button>
+            </form> 
+            <hr>
+            <form action="/collections/<%= collection[i]._id%>?_method=DELETE" method="POST">
+              <button type="submit">Delete <%=collection[i].name%>?</button>
+            </form>
+          </div>
+        </div>
+      <% } %>
     </div>
 
   

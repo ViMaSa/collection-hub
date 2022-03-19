@@ -6,6 +6,7 @@ const collectionSchema = new Schema({
     category: {type: String, required: true},
     description: {type: String, required: false},
     img: {type: String, required: false},
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     userId: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 }, {timestamps: true})
 

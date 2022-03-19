@@ -14,6 +14,8 @@ const store = new MongoDBStore({
 require('./db-utils/connect')
 const collectionController = require('./controllers/collectionController')
 const userController = require('./controllers/userController')
+const commentsController = require('./controllers/commentsController')
+
 // app.use('/public',express.static(__dirname + '/public/'))
 app.use(express.static("stylesheets"))
 app.use(methodOverride('_method'))
@@ -56,7 +58,7 @@ app.get('/', async (req, res) => {
 });
 app.use('/users', userController);
 
-app.use('/collections', isLoggedIn, collectionController);
+app.use('/collections', isLoggedIn, collectionController, commentsController );
 
 
 module.exports = app.listen(port, ()=>{

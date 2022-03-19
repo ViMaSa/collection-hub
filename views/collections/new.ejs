@@ -10,37 +10,35 @@
 <body style="background-color: rgba(160, 188, 189); margin: 0% 20% 0% 20%" class="text-align-center">
     <h1 style="margin-top: 5%; margin-bottom: 5%; text-align: center; color: white; font-family: 'Poiret One';">Upload an Item to your Collection</h1>
         <div class="container-fluid form-group">
-        <form action="/collections" method="POST">
-
+        <form action="/collections" method="POST" enctype="multipart/form-data">
             <div class="row row-cols-1" >
                 <div class="input-group mb-3 col" >
                     <span class="input-group-text" id="inputGroup-sizing-default">Item Name:</span>
                     <input type="text" class="form-control" name="name" aria-label="Item Name" aria-describedby="inputGroup-sizing-default">
                 </div>
-
                 <div class="col input-group mb-8">
                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
                     <select class="form-select" name="category" id="inputGroupSelect01">
                         <option selected>Choose...</option>
-                        <option value="1">Action Figure</option>
-                        <option value="2">Comic Book</option>
-                        <option value="4">Coins and Currency</option>
-                        <option value="5">Trading Cards</option>
-                        <option value="6">Stamps</option>
-                        <option value="7">Fine Art</option>
-                        <option value="8">Jewelry</option>
-                        <option value="8">Video Games</option>
-                        <option value="9">Other</option>
+                        <option value="Action Figure">Action Figure</option>
+                        <option value="Comic Book">Comic Book</option>
+                        <option value="Coins and Currency">Coins and Currency</option>
+                        <option value="Trading Cards">Trading Cards</option>
+                        <option value="Stamps">Stamps</option>
+                        <option value="Fine Art">Fine Art</option>
+                        <option value="Jewelry">Jewelry</option>
+                        <option value="Video Games">Video Games</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="mb-3" style="margin: 0;">
                     <label for="text" class="form-label"></label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Put a description of your item here..."></textarea>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" placeholder="Put a description of your item here..."></textarea>
                 </div>
                 <div class="col col-xs-4" style="margin-bottom: 2%; margin-top: 0%;">
                     <label for="formFileLg" class="form-label"></label>
-                    <input class="form-control form-control-primary" name="myFile" type="file" enctype="multipart/form-data">
+                    <input class="form-control form-control-primary" id="userpicupload" name="img" accept="image/png, image/jpeg" type="file">
                 </div>
                 <div class="col-xs-4"><button type="submit" class="btn btn-outline-dark col">Post</button></div>
             </div>
