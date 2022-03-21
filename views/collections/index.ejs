@@ -99,7 +99,9 @@
                     <div class="column-item-1  wrapper">
                         <a href ="/collections/<%=collection._id%>">
                         <ul class="collections"> 
-                        <ul class="collection-image"> IMAGE GOES HERE<%= collection.img %> </ul>
+                        <ul class="collection-image">
+                          <img src="<%=collection.img%>" alt="">
+                        </ul>
                         <li class="collection-name"> <%= collection.name %></li>
                         <li><%= collection.description %></li>
                         </ul> 

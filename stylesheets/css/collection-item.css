@@ -21,11 +21,12 @@ body {
     -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    text-align: -webkit-center;
     position: relative;
   }
   
   .product-img {
-    float: left;
+    float: center;
     height: 420px;
     width: 327px;
   }
