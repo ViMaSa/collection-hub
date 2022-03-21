@@ -81,7 +81,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try{
         await Collection.findByIdAndDelete(req.params.id)
-        res.redirect('/collections')
+        res.redirect('/collections/showall')
     } catch (err) {
         res.sendStatus(500)
     }
